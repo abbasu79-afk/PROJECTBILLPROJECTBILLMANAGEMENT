@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project Bill Management</title>
+    <style>
+      /* CSS styles would go here */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+      }
+      .bill-container {
+        max-width: 1000px;
+        margin: 0 auto;
+        background: #fff;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+      }
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+      }
+      th {
+        background-color: #f2f2f2;
+      }
+      .text-right {
+        text-align: right;
+      }
+      .total-row {
+        font-weight: bold;
+      }
+      .amount-words {
+        margin-top: 20px;
+        padding: 10px;
+        background: #f9f9f9;
+        border: 1px dashed #ccc;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bill-container">
+      <h1 style="text-align: center">PROJECT BILL</h1>
+
+      <div
+        style="
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 20px;
+        "
+      >
+        <div>
+          <p><strong>Bill No:</strong> <span id="bill-no">PB-001</span></p>
+          <p><strong>Date:</strong> <span id="bill-date">01/01/2023</span></p>
+        </div>
+        <div>
+          <p>
+            <strong>Party Name:</strong>
+            <span id="party-name">ABC Corporation</span>
+          </p>
+          <p>
+            <strong>Address:</strong>
+            <span id="party-address">123 Main St, City</span>
+          </p>
+        </div>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>SL No.</th>
+            <th>Description</th>
+            <th>Quantity</th>
+            <th>Unit</th>
+            <th>Rate</th>
+            <th>Amount</th>
+          </tr>
+        </thead>
+        <tbody id="items-table">
+          <!-- Items will be added here -->
+        </tbody>
+      </table>
+
+      <div style="display: flex; justify-content: space-between">
+        <div style="width: 48%">
+          <table>
+            <tr>
+              <th>Additional Charges</th>
+              <th>Amount</th>
+            </tr>
+            <tr>
+              <td>DF VAT</td>
+              <td class="text-right">100.00</td>
+            </tr>
+            <tr>
+              <td>Custom Assessment</td>
+              <td class="text-right">150.00</td>
+            </tr>
+            <tr>
+              <td>Shipping Agent Cost</td>
+              <td class="text-right">200.00</td>
+            </tr>
+            <tr>
+              <td>Depot Cost</td>
+              <td class="text-right">75.00</td>
+            </tr>
+            <tr>
+              <td>Stamp Cost</td>
+              <td class="text-right">50.00</td>
+            </tr>
+            <tr>
+              <td>Scanning Officer Cost</td>
+              <td class="text-right">125.00</td>
+            </tr>
+            <!-- Additional 12 charge rows -->
+            <tr>
+              <td>Additional Charge 1</td>
+              <td class="text-right">80.00</td>
+            </tr>
+            <tr>
+              <td>Additional Charge 2</td>
+              <td class="text-right">90.00</td>
+            </tr>
+            <tr>
+              <td>Additional Charge 3</td>
+              <td class="text-right">110.00</td>
+            </tr>
+            <tr>
+              <td>Additional Charge 4</td>
+              <td class="text-right">120.00</td>
+            </tr>
+            <tr>
+              <td>Additional Charge 5</td>
+              <td class="text-right">130.00</td>
+            </tr>
+            <tr>
+              <td>Additional Charge 6</td>
+              <td class="text-right">140.00</td>
+            </tr>
+            <tr>
+              <td>Additional Charge 7</td>
+              <td class="text-right">150.00</td>
+            </tr>
+            <tr>
+              <td>Additional Charge 8</td>
+              <td class="text-right">160.00</td>
+            </tr>
+            <tr>
+              <td>Additional Charge 9</td>
+              <td class="text-right">170.00</td>
+            </tr>
+            <tr>
+              <td>Additional Charge 10</td>
+              <td class="text-right">180.00</td>
+            </tr>
+            <tr>
+              <td>Additional Charge 11</td>
+              <td class="text-right">190.00</td>
+            </tr>
+            <tr>
+              <td>Additional Charge 12</td>
+              <td class="text-right">200.00</td>
+            </tr>
+            <tr class="total-row">
+              <td>Total Amount</td>
+              <td class="text-right">2000.00</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="amount-words">
+        <strong>Amount in Words:</strong> Two thousand dollars only
+      </div>
+
+      <div
+        style="margin-top: 40px; display: flex; justify-content: space-between"
+      >
+        <div style="text-align: center">
+          <p>.................................</p>
+          <p>Receiver's Signature</p>
+        </div>
+        <div style="text-align: center">
+          <p>.................................</p>
+          <p>Authorized Signature</p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // JavaScript code would go here
+      function numberToWords(num) {
+        // Function to convert numbers to words
+        const ones = [
+          "",
+          "one",
+          "two",
+          "three",
+          "four",
+          "five",
+          "six",
+          "seven",
+          "eight",
+          "nine",
+        ];
+        const teens = [
+          "ten",
+          "eleven",
+          "twelve",
+          "thirteen",
+          "fourteen",
+          "fifteen",
+          "sixteen",
+          "seventeen",
+          "eighteen",
+          "nineteen",
+        ];
+        const tens = [
+          "",
+          "ten",
+          "twenty",
+          "thirty",
+          "forty",
+          "fifty",
+          "sixty",
+          "seventy",
+          "eighty",
+          "ninety",
+        ];
+
+        num = parseFloat(num) || 0;
+        if (num === 0) return "Zero dollars";
+
+        let words = "";
+        if (num >= 1000) {
+          words += ones[Math.floor(num / 1000)] + " thousand ";
+          num %= 1000;
+        }
+        if (num >= 100) {
+          words += ones[Math.floor(num / 100)] + " hundred ";
+          num %= 100;
+        }
+        if (num >= 20) {
+          words += tens[Math.floor(num / 10)] + " ";
+          num %= 10;
+        } else if (num >= 10) {
+          words += teens[num - 10] + " ";
+          num = 0;
+        }
+        if (num > 0) {
+          words += ones[num] + " ";
+        }
+
+        return words.trim() + " dollars only";
+      }
+
+      // Example usage:
+      document.addEventListener("DOMContentLoaded", function () {
+        // You would add dynamic functionality here
+        // For example, calculating totals and converting to words
+        const totalAmount = 2000.0;
+        document.querySelector(".amount-words").textContent =
+          "Amount in Words: " + numberToWords(totalAmount);
+      });
+    </script>
+  </body>
+</html>
